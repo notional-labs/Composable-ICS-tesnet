@@ -1,8 +1,8 @@
 # Composable Testnet Documentation
 ## Information
 - Chain ID: `banksy-testnet-3`
-- Genesis: https://raw.githubusercontent.com/notional-labs/composable-networks/main/banksy-testnet-3/genesis.json
-- Binary: https://github.com/notional-labs/composable-centauri/releases/download/v5.0.0/centaurid
+- Genesis: https://raw.githubusercontent.com/notional-labs/Composable-ICS-tesnet/main/genesis.json
+- Binary: https://github.com/notional-labs/Composable-ICS-tesnet/raw/main/binaries/v5.0.0/centaurid
 - Current version: `v5.0.0`
 - Peers: `c0f197bdf6c4a4a16eb9db112d1ec9545336fd43@168.119.91.22:2250,364b8245e72f083b0aa3e0d59b832020b66e9e9d@65.109.80.150:21500`
 - Public Notional endpoints: 
@@ -62,7 +62,7 @@ To join `banksy-testnet-3` as a validator, you should setup a running node as in
     ```bash
     centaurid keys add <validator-key> # generate a new key, or use `--recover` to recover an existed key with mnemonic
     ```
-- For testnet tokens, head to `testnet-3-faucet` [channel](https://discord.com/channels/828751308060098601/1112810637995815043) on the Composable discord and send the following message with you address included
+- For testnet tokens, head to `testnet-3-faucet` [channel](https://discord.gg/An8nXEGP) on the Composable discord and send the following message with you address included
     ```
     $request <address> composable
     ```
