@@ -1,5 +1,6 @@
 # Composable Testnet Documentation
 ## Information
+- Network information: https://github.com/notional-labs/Composable-ICS-tesnet
 - Chain ID: `banksy-testnet-3`
 - Genesis: https://raw.githubusercontent.com/notional-labs/Composable-ICS-tesnet/main/genesis.json
 - Binary: https://github.com/notional-labs/Composable-ICS-tesnet/raw/main/binaries/v5.0.0/centaurid
@@ -39,7 +40,7 @@ chmod +x centaurid
 centaurid version # v5.0.0
 centaurid init <moniker> --chain-id banksy-testnet-3
 cd $HOME/.banksy
-wget https://raw.githubusercontent.com/notional-labs/composable-networks/main/banksy-testnet-3/genesis.json -O config/genesis.json
+wget https://raw.githubusercontent.com/notional-labs/Composable-ICS-tesnet/main/genesis.json -O config/genesis.json
 
 
 # state sync
