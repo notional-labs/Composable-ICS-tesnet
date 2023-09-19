@@ -18,7 +18,7 @@ There are two ways of setting up the `centaurid` binary, building from source or
 
 To build the binary from source, run these commands:
 ```bash
-mkdir $HOME/go/bin # ignore this command if you already have $HOME/go/bin folder
+#mkdir $HOME/go/bin # ignore this command if you already have $HOME/go/bin folder
 export PATH=$PATH:$HOME/go/bin
 cd $HOME
 git clone https://github.com/notional-labs/composable-centauri
@@ -32,15 +32,14 @@ centaurid version # v5.0.0
 Here is a full script to install `centaurid` binary and run the node with state sync. This script should be run with administration priviledges by running `sudo script.sh`:
 ```bash
 # script.sh
-mkdir $HOME/go/bin # ignore this command if you already have $HOME/go/bin folder
+#mkdir $HOME/go/bin # ignore this command if you already have $HOME/go/bin folder
 export PATH=$PATH:$HOME/go/bin
-cd $HOME/go/bin
-wget https://github.com/notional-labs/composable-centauri/releases/download/v5.0.0/centaurid -O centaurid
-chmod +x centaurid
+wget https://github.com/notional-labs/composable-centauri/releases/download/v5.0.0/centaurid -O $HOME/go/bin.centaurid
+chmod +x $HOME/go/bin.centaurid
+sudo wget -P /usr/lib https://github.com/CosmWasm/wasmvm/raw/main/internal/api/libwasmvm.x86_64.so
 centaurid version # v5.0.0
 centaurid init <moniker> --chain-id banksy-testnet-3
-cd $HOME/.banksy
-wget https://raw.githubusercontent.com/notional-labs/Composable-ICS-tesnet/main/genesis.json -O config/genesis.json
+wget https://raw.githubusercontent.com/notional-labs/Composable-ICS-tesnet/main/genesis.json -O $HOME/.banksy/config/genesis.json
 
 
 # state sync
