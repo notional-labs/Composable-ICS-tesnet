@@ -1,15 +1,15 @@
 # Composable Testnet Documentation
 ## Information
 - Network information: https://github.com/notional-labs/Composable-ICS-tesnet
-- Chain ID: `banksy-testnet-3`
+- Chain ID: `banksy-testnet-4`
 - Genesis: https://raw.githubusercontent.com/notional-labs/Composable-ICS-tesnet/main/genesis.json
-- Binary: https://github.com/notional-labs/Composable-ICS-tesnet/raw/main/binaries/v5.0.0/centaurid
-- Current version: `v5.0.0`
-- Peers: `c0f197bdf6c4a4a16eb9db112d1ec9545336fd43@168.119.91.22:2250,364b8245e72f083b0aa3e0d59b832020b66e9e9d@65.109.80.150:21500`
+- Binary: https://github.com/notional-labs/Composable-ICS-tesnet/raw/main/binaries/v6.3.x/centaurid
+- Current version: `v6.3.6`
+- Peers: ``
 - Public Notional endpoints: 
-    - RPC: `https://rpc-banksy.notional.ventures:443`
-    - API: `https://api-banksy.notional.ventures:443`
-    - gRPC: `https://grpc-banksy.notional.ventures:443`
+    - RPC: ``
+    - API: ``
+    - gRPC: ``
 - Block Explorer: `https://explorer.nodexcapital.com/banksy-testnet`
 ## Setup Instruction
 **1. Building the binary**
@@ -21,11 +21,11 @@ To build the binary from source, run these commands:
 #mkdir $HOME/go/bin # ignore this command if you already have $HOME/go/bin folder
 export PATH=$PATH:$HOME/go/bin
 cd $HOME
-git clone https://github.com/notional-labs/composable-centauri
+git clone https://github.com/ComposableFi/composable-cosmos.git
 cd composable-centauri
-git checkout v5.0.0 # Using v5.0.0
+git checkout tags/v6.3.6 # Using v6.3.6
 make install
-centaurid version # v5.0.0
+centaurid version # v6.3.6
 ```
 
 **2. Joining testnet**
@@ -34,16 +34,13 @@ Here is a full script to install `centaurid` binary and run the node with state 
 # script.sh
 #mkdir $HOME/go/bin # ignore this command if you already have $HOME/go/bin folder
 export PATH=$PATH:$HOME/go/bin
-wget https://github.com/notional-labs/composable-centauri/releases/download/v5.0.0/centaurid -O $HOME/go/bin.centaurid
-chmod +x $HOME/go/bin.centaurid
-sudo wget -P /usr/lib https://github.com/CosmWasm/wasmvm/raw/main/internal/api/libwasmvm.x86_64.so
-centaurid version # v5.0.0
-centaurid init <moniker> --chain-id banksy-testnet-3
+centaurid version # v6.3.6
+centaurid init <moniker> --chain-id banksy-testnet-4
 wget https://raw.githubusercontent.com/notional-labs/Composable-ICS-tesnet/main/genesis.json -O $HOME/.banksy/config/genesis.json
 
 
 # state sync
-SNAP_RPC="https://rpc-banksy.notional.ventures:443"
+SNAP_RPC=""
 LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height); \
 BLOCK_HEIGHT=$((LATEST_HEIGHT - 2000)); \
 TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
@@ -53,7 +50,7 @@ s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.banksy/config/config.toml
 
 # run node
-centaurid start --p2p.seeds 364b8245e72f083b0aa3e0d59b832020b66e9e9d@65.109.80.150:21500,c0f197bdf6c4a4a16eb9db112d1ec9545336fd43@168.119.91.22:2250
+centaurid start --p2p.seeds 
 ```
 
 **3. Join testnet as a validator**
